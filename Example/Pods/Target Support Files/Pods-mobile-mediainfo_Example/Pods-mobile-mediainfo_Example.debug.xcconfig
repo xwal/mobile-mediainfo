@@ -1,0 +1,13 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/NewPopMenu" "${PODS_CONFIGURATION_BUILD_DIR}/TPInAppReceipt" "${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 UNICODE=1 _UNICODE=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/NewPopMenu/PopMenu.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TPInAppReceipt/TPInAppReceipt.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift/Toast_Swift.framework/Headers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/mobile-mediainfo"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../mobile-mediainfo/lib"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"mediainfo" -l"z" -l"zen" -framework "CoreFoundation" -framework "Foundation" -framework "PopMenu" -framework "QuartzCore" -framework "TPInAppReceipt" -framework "Toast_Swift" -framework "UIKit"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

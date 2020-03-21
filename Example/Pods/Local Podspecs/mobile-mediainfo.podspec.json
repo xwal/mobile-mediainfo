@@ -1,0 +1,37 @@
+{
+  "name": "mobile-mediainfo",
+  "version": "19.09",
+  "summary": "MediaInfo for iOS.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/chaoskyme/mobile-mediainfo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chaoskyme": "chaosky.me@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/chaoskyme/mobile-mediainfo.git",
+    "tag": "19.09"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "mobile-mediainfo/include/**/*",
+  "vendored_libraries": "mobile-mediainfo/lib/**/*.a",
+  "frameworks": [
+    "Foundation",
+    "CoreFoundation"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": [
+      "UNICODE=1",
+      "_UNICODE=1"
+    ]
+  }
+}

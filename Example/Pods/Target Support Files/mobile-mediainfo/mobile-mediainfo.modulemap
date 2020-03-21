@@ -1,0 +1,6 @@
+framework module mobile_mediainfo {
+  umbrella header "mobile-mediainfo-umbrella.h"
+
+  export *
+  module * { export * }
+}

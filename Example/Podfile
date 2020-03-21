@@ -2,10 +2,7 @@ use_frameworks!
 
 target 'mobile-mediainfo_Example' do
   pod 'mobile-mediainfo', :path => '../'
-
-  target 'mobile-mediainfo_Tests' do
-    inherit! :search_paths
-
-    
-  end
+  pod 'Toast-Swift', '~> 3.0.1'
+  pod 'NewPopMenu', '~> 2.0'
+  pod 'TPInAppReceipt'
 end

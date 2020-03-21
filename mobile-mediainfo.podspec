@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'mobile-mediainfo'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of mobile-mediainfo.'
+  s.version          = '19.09'
+  s.summary          = 'MediaInfo for iOS.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -30,13 +30,10 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'mobile-mediainfo/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'mobile-mediainfo' => ['mobile-mediainfo/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'mobile-mediainfo/include/**/*'
+  # s.public_header_files = 'Pod/include/**/*.h'
+  s.vendored_libraries = 'mobile-mediainfo/lib/**/*.a'
+  s.frameworks = 'Foundation', 'CoreFoundation'
+  s.libraries = 'z', 'c++'
+  s.user_target_xcconfig = {'GCC_PREPROCESSOR_DEFINITIONS' => ["UNICODE=1", "_UNICODE=1"]}
 end
