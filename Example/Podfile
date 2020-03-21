@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'mobile-mediainfo_Example' do
+  pod 'mobile-mediainfo', :path => '../'
+
+  target 'mobile-mediainfo_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
