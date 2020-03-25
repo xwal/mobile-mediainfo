@@ -50,7 +50,7 @@ mobile-mediainfo is available through [CocoaPods](https://cocoapods.org). To ins
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'mobile-mediainfo', :git => 'https://github.com/SwiftGrowth/mobile-mediainfo.git'
+pod 'mobile-mediainfo', :git => 'https://github.com/chaoskyme/mobile-mediainfo.git'
 ```
 
 ## Author
