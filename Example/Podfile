@@ -1,8 +1,18 @@
 use_frameworks!
 
+platform :ios, '11.0'
+
 target 'mobile-mediainfo_Example' do
   pod 'mobile-mediainfo', :path => '../'
-  pod 'Toast-Swift', '~> 3.0.1'
-  pod 'NewPopMenu', '~> 2.0'
+  pod 'Toast-Swift'
+  pod 'NewPopMenu'
   pod 'TPInAppReceipt'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "11.0"
+    end
+  end
 end

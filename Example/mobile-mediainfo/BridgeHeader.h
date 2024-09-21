@@ -6,4 +6,5 @@
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
+#import <stdlib.h>
 #import <MediaInfoDLL_Static.h>

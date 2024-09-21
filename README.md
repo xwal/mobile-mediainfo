@@ -1,6 +1,6 @@
 # mobile-mediainfo
 
-[![CI Status](https://img.shields.io/travis/chaoskyme/mobile-mediainfo.svg?style=flat)](https://travis-ci.org/chaoskyme/mobile-mediainfo)
+[![CI Status](https://img.shields.io/travis/xwal/mobile-mediainfo.svg?style=flat)](https://travis-ci.org/xwal/mobile-mediainfo)
 [![Version](https://img.shields.io/cocoapods/v/mobile-mediainfo.svg?style=flat)](https://cocoapods.org/pods/mobile-mediainfo)
 [![License](https://img.shields.io/cocoapods/l/mobile-mediainfo.svg?style=flat)](https://cocoapods.org/pods/mobile-mediainfo)
 [![Platform](https://img.shields.io/cocoapods/p/mobile-mediainfo.svg?style=flat)](https://cocoapods.org/pods/mobile-mediainfo)
@@ -9,11 +9,11 @@
 
 [MediaInfo](https://github.com/MediaArea/MediaInfo) is a convenient unified display of the most relevant technical and tag data for video and audio files.
 
-[mobile-mediainfo](https://github.com/chaoskyme/mobile-mediainfo) is a Framework for iOS8+, compiled also for armv7, armv7s, arm64 , i386(Simulator) and x86_64(Simulator).
+[mobile-mediainfo](https://github.com/xwal/mobile-mediainfo) is a Framework for iOS8+, compiled also for armv7, armv7s, arm64 , i386(Simulator) and x86_64(Simulator).
 
 These are the current versions of the upstream bundled libraries within the framework that this repository provides:
 
-* MediaInfoLib 19.09 ([homepage](https://github.com/MediaArea/MediaInfoLib))
+* MediaInfoLib 24.06 ([homepage](https://github.com/MediaArea/MediaInfoLib))
 
 * ZenLib master ([homepage](https://github.com/MediaArea/ZenLib))
 
@@ -50,12 +50,12 @@ mobile-mediainfo is available through [CocoaPods](https://cocoapods.org). To ins
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'mobile-mediainfo', :git => 'https://github.com/chaoskyme/mobile-mediainfo.git'
+pod 'mobile-mediainfo', :git => 'https://github.com/xwal/mobile-mediainfo.git'
 ```
 
 ## Author
 
-chaoskyme, chaosky.me@gmail.com
+xwal, chaosky.me@gmail.com
 
 ## License
 

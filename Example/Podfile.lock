@@ -1,17 +1,22 @@
 PODS:
-  - mobile-mediainfo (19.09)
+  - ASN1Swift (1.2.3)
+  - mobile-mediainfo (24.06)
   - NewPopMenu (2.1.2)
-  - Toast-Swift (3.0.1)
-  - TPInAppReceipt (2.3.4)
+  - Toast-Swift (5.0.1)
+  - TPInAppReceipt (3.3.4):
+    - TPInAppReceipt/Core (= 3.3.4)
+  - TPInAppReceipt/Core (3.3.4):
+    - ASN1Swift (~> 1.2.3)
 
 DEPENDENCIES:
   - mobile-mediainfo (from `../`)
-  - NewPopMenu (~> 2.0)
-  - Toast-Swift (~> 3.0.1)
+  - NewPopMenu
+  - Toast-Swift
   - TPInAppReceipt
 
 SPEC REPOS:
   trunk:
+    - ASN1Swift
     - NewPopMenu
     - Toast-Swift
     - TPInAppReceipt
@@ -21,11 +26,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  mobile-mediainfo: d9db238454d01c51029545355cfcdc84a5b276a3
+  ASN1Swift: 73ba94f1d97c1c1d059d180708ad42845aeac4f9
+  mobile-mediainfo: 46135c42fae394435e9d8c5873e41106baefee85
   NewPopMenu: c6129e08e8192f6257ceb5f9a4357e1b59c6e2e7
-  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  TPInAppReceipt: 00fbe75283ae359f2242b2c8718cdaffb615bd65
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TPInAppReceipt: 75ff97f2484a463cf46c172fe7f94225612aeda1
 
-PODFILE CHECKSUM: b235bd42f98d598ca3bacb1a4e982149bf2c968a
+PODFILE CHECKSUM: 018acffd08fea4808fdf91ea234164f3947d759a
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.15.2

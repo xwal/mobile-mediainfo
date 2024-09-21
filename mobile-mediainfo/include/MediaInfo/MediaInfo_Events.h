@@ -506,7 +506,50 @@ struct MediaInfo_Event_DvDif_Analysis_Frame_0
     MediaInfo_int16u        RecordedDateTime2;
     MediaInfo_int8u         Arb;
     MediaInfo_int8u         Verbosity;
-    char*                   Errors;
+    const char*             Errors;
+};
+struct MediaInfo_Event_DvDif_Analysis_Frame_1
+{
+    MEDIAINFO_EVENT_GENERIC
+    MediaInfo_int32u        TimeCode;
+    MediaInfo_int32u        RecordedDateTime1;
+    MediaInfo_int16u        RecordedDateTime2Buggy;
+    MediaInfo_int8u         Arb;
+    MediaInfo_int8u         Verbosity;
+    const char*             Errors;
+    size_t                  Video_STA_Errors_Count;
+    size_t*                 Video_STA_Errors;
+    size_t                  Audio_Data_Errors_Count;
+    size_t*                 Audio_Data_Errors;
+    MediaInfo_int32u        Captions_Errors; // bit 0 = parity issue
+    MediaInfo_int32u        Coherency_Flags; // bit 0 = no pack sub, bit 1 = no pack vid, bit 2 = no pack aud, bit 3 = no data vid, bit 4 = no data aud, bit 5 = no vid source/control, bit 6 = no aud source/control
+    MediaInfo_int16u        RecordedDateTime2;
+    size_t                  BlockStatus_Count;
+    const MediaInfo_int8u*  BlockStatus;
+    MediaInfo_int32u        AbstBf;
+    MediaInfo_int32u        MoreFlags;
+    const MediaInfo_int8u*  MoreData;
+};
+
+/*-------------------------------------------------------------------------*/
+/* Change in the stream config                                             */
+#define MediaInfo_Event_DvDif_Change 0xB002
+struct MediaInfo_Event_DvDif_Change_0
+{
+    MEDIAINFO_EVENT_GENERIC
+    MediaInfo_int32u        Width;
+    MediaInfo_int32u        Height;
+    MediaInfo_int32u        VideoChromaSubsampling; // -1=unknown, 0=411, 1=420, 2=422
+    MediaInfo_int32u        VideoScanType; // -1=unknown
+    MediaInfo_int32u        VideoRatio_N;
+    MediaInfo_int32u        VideoRatio_D;
+    MediaInfo_int32u        VideoRate_N;
+    MediaInfo_int32u        VideoRate_D;
+    MediaInfo_int32u        AudioRate_N;
+    MediaInfo_int32u        AudioRate_D;
+    MediaInfo_int32u        AudioChannels;
+    MediaInfo_int32u        AudioBitDepth;
+    MediaInfo_int32u        Captions_Flags; // bit 0 = present
 };
 
 /***************************************************************************/
@@ -647,6 +690,12 @@ struct MediaInfo_Event_DvDif_Analysis_Frame_0
 /***************************************************************************/
 
 #define MediaInfo_Parser_MiXml          0x6C
+
+/***************************************************************************/
+/* NSV                                                                     */
+/***************************************************************************/
+
+#define MediaInfo_Parser_Nsv            0x6D
 
 /***************************************************************************/
 /* MPEG Video                                                              */

@@ -1,5 +1,5 @@
-MEDIAINFO_NAME     	:= MediaInfoLib-19.09
-MEDIAINFO_SRC_NAME 	:= v19.09
+MEDIAINFO_NAME     	:= MediaInfoLib-24.06
+MEDIAINFO_SRC_NAME 	:= v24.06
 ZEN_NAME   			:= ZenLib-master
 ZEN_SRC_NAME       	:= master
 
@@ -15,14 +15,15 @@ ZEN_SRC = $(MOBILE_MEDIAINFO_SRC)/$(ZEN_NAME)/Project/GNU/Library
 
 MOBILE_MEDIAINFO_LIB_DIR = $(shell pwd)/mobile-mediainfo/lib/
 MOBILE_MEDIAINFO_INC_DIR = $(shell pwd)/mobile-mediainfo/include/
-LIB_FAT_DIR   = $(shell pwd)/mobile-mediainfo/lib
+MOBILE_MEDIAINFO_FRAMEWORK_DIR = $(shell pwd)/mobile-mediainfo/Frameworks/
 
 libmediainfofiles = libmediainfo.a
 libzenfiles = libzen.a
 
-sdks = $(SDK_IPHONEOS_PATH) $(SDK_IPHONEOS_PATH) $(SDK_IPHONEOS_PATH) $(SDK_IPHONESIMULATOR_PATH) $(SDK_IPHONESIMULATOR_PATH)
-archs_all = armv7 armv7s arm64 i386 x86_64
-arch_names_all = arm-apple-darwin7 arm-apple-darwin7s arm-apple-darwin64 i386-apple-darwin x86_64-apple-darwin
+sdks = $(SDK_IPHONEOS_PATH) $(SDK_IPHONESIMULATOR_PATH) 
+archs_all = arm64 x86_64 
+arch_names_all = aarch64-apple-ios x86_64-apple-ios
+targets_all = aarch64-apple-ios x86_64-apple-ios-simulator
 arch_names = $(foreach arch, $(ARCHS), $(call swap, $(arch), $(archs_all), $(arch_names_all) ) )
 ARCHS ?= $(archs_all)
 
@@ -61,6 +62,10 @@ $(libmediainfofat) : $(libmediainfo)
 	xcrun lipo $(realpath $(addsuffix lib/$(@F), $(libmediainfofolders_all)) ) -create -output $@
 	mkdir -p $(MOBILE_MEDIAINFO_INC_DIR)
 	cp -rvf $(firstword $(libmediainfofolders))/include/* $(MOBILE_MEDIAINFO_INC_DIR)
+	xcrun xcodebuild -create-xcframework \
+	$(foreach dir, $(libmediainfofolders_all), \
+		-library $(addsuffix lib/$(@F), $(dir)) -headers $(addsuffix include, $(dir)) ) \
+    -output $(MOBILE_MEDIAINFO_FRAMEWORK_DIR)/MediaInfoLib.xcframework
 
 $(libmediainfo) :  $(libmediainfomakefile)
 	cd $(abspath $(@D)/..) ; \
@@ -74,7 +79,7 @@ $(MEDIAINFO_SRC)/%/Makefile : $(libmediainfoautogen)
 	export CXXFLAGS="$$CFLAGS -Wno-deprecated-register"; \
 	mkdir -p $(@D) ; \
 	cd $(@D) ; \
-	../configure --host=$* --enable-fast-install --prefix=`pwd` --enable-static --enable-arch-$(call swap, $*, $(arch_names_all), $(archs_all))
+	../configure --host=$* --enable-fast-install --prefix=`pwd` --enable-static --enable-arch-$(call swap, $*, $(arch_names_all), $(archs_all)) --target=$(call swap, $*, $(arch_names_all), $(targets_all))
 
 $(libmediainfoautogen): $(libmediainfoconfig)
 	cd $(@D) && ./autogen.sh 2> /dev/null
@@ -86,6 +91,10 @@ $(libzenfat) : $(libzen)
 	xcrun lipo $(realpath $(addsuffix lib/$(@F), $(libzenfolders_all)) ) -create -output $@
 	mkdir -p $(MOBILE_MEDIAINFO_INC_DIR)
 	cp -rvf $(firstword $(libzenfolders))/include/* $(MOBILE_MEDIAINFO_INC_DIR)
+	xcrun xcodebuild -create-xcframework \
+	$(foreach dir, $(libzenfolders_all), \
+		-library $(addsuffix lib/$(@F), $(dir)) -headers $(addsuffix include, $(dir)) ) \
+    -output $(MOBILE_MEDIAINFO_FRAMEWORK_DIR)/ZenLib.xcframework
 
 $(libzen) : $(libzenmakefile)
 	cd $(abspath $(@D)/..) ; \
@@ -99,7 +108,7 @@ $(ZEN_SRC)/%/Makefile : $(libzenautogen)
 	export LDFLAGS=$$CFLAGS; \
 	mkdir -p $(@D) ; \
 	cd $(@D) ; \
-	../configure --host=$* --enable-fast-install --prefix=`pwd` --enable-static --enable-arch-$(call swap, $*, $(arch_names_all), $(archs_all))
+	../configure --host=$* --enable-fast-install --prefix=`pwd` --enable-static --enable-arch-$(call swap, $*, $(arch_names_all), $(archs_all)) --target=$(call swap, $*, $(arch_names_all), $(targets_all))
 
 $(libzenautogen): $(libzenconfig)
 	cd $(@D) && ./autogen.sh 2> /dev/null
@@ -152,6 +161,7 @@ mostlycleanzen :
 
 .PHONY : distclean
 distclean :
+	-rm -rf $(MOBILE_MEDIAINFO_FRAMEWORK_DIR)
 	-rm -rf $(MOBILE_MEDIAINFO_LIB_DIR)
 	-rm -rf $(MOBILE_MEDIAINFO_INC_DIR)
 	-rm -rf $(MEDIAINFO_SRC)
