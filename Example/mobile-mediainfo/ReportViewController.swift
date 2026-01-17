@@ -6,6 +6,7 @@
 
 import UIKit
 import Toast_Swift
+import MediaInfoLib
 
 class ReportViewController: UIViewController, UIDocumentPickerDelegate {
     @IBOutlet weak var reportView: UIWebView!

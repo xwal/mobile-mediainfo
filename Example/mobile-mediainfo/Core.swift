@@ -5,6 +5,7 @@
 */
 
 import Foundation
+import MediaInfoLib
 
 // convert String to null-terminated wchar_t C array
 extension String {
@@ -147,7 +148,7 @@ class Core {
         MediaInfo_Open_Buffer_Init(mi, fileSize, 0)
 
         while true {
-            var data: Data = file.readData(ofLength: 1024 * 1024)
+            let data: Data = file.readData(ofLength: 1024 * 1024)
             var state: States = States(rawValue: 0)
             let size = data.count
 
