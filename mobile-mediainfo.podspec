@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'mobile-mediainfo'
-  s.version          = '24.06'
+  s.version          = '25.04'
   s.summary          = 'MediaInfo for iOS.'
 
 # This description is used to generate tags and improve search results.
@@ -28,12 +28,10 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/xwal/mobile-mediainfo.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
-
- s.source_files = 'mobile-mediainfo/include/**/*'
- s.vendored_libraries = 'mobile-mediainfo/lib/**/*.a'
-  # s.static_framework = true
-  # s.vendored_frameworks = 'mobile-mediainfo/Frameworks/**/*.xcframework'
+  s.ios.deployment_target = '12.0'
+  s.static_framework = true
+  
+  s.vendored_frameworks = 'mobile-mediainfo/Frameworks/**/*.xcframework'
   s.frameworks = 'Foundation', 'CoreFoundation'
   s.libraries = 'z', 'c++'
   s.user_target_xcconfig = {'GCC_PREPROCESSOR_DEFINITIONS' => ["UNICODE=1", "_UNICODE=1"]}

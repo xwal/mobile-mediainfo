@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5D04C1F2C9F210500E8FCA4 /* MediaInfoLib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D04C1D2C9F210500E8FCA4 /* MediaInfoLib.xcframework */; };
+		D5D04C212C9F210500E8FCA4 /* ZenLib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D04C1E2C9F210500E8FCA4 /* ZenLib.xcframework */; };
 		D6B977092426A681004D6608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B976F72426A680004D6608 /* AppDelegate.swift */; };
 		D6B9770A2426A681004D6608 /* ReportsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B976F82426A680004D6608 /* ReportsListViewController.swift */; };
 		D6B9770B2426A681004D6608 /* ViewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B976F92426A680004D6608 /* ViewsController.swift */; };
@@ -32,6 +34,8 @@
 		C72B76E7B115E1E4B4EF09C3 /* Pods-mobile-mediainfo_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-mediainfo_Example.debug.xcconfig"; path = "Target Support Files/Pods-mobile-mediainfo_Example/Pods-mobile-mediainfo_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C86E86EFD67F4D2EC33E1A80 /* Pods-mobile-mediainfo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-mediainfo_Tests.release.xcconfig"; path = "Target Support Files/Pods-mobile-mediainfo_Tests/Pods-mobile-mediainfo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D43DC2900866EC9A283E748A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D5D04C1D2C9F210500E8FCA4 /* MediaInfoLib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MediaInfoLib.xcframework; path = "../mobile-mediainfo/Frameworks/MediaInfoLib.xcframework"; sourceTree = "<group>"; };
+		D5D04C1E2C9F210500E8FCA4 /* ZenLib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZenLib.xcframework; path = "../mobile-mediainfo/Frameworks/ZenLib.xcframework"; sourceTree = "<group>"; };
 		D6B976F72426A680004D6608 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6B976F82426A680004D6608 /* ReportsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsListViewController.swift; sourceTree = "<group>"; };
 		D6B976F92426A680004D6608 /* ViewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewsController.swift; sourceTree = "<group>"; };
@@ -45,7 +49,6 @@
 		D6B977052426A681004D6608 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		D6B977062426A681004D6608 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D6B977082426A681004D6608 /* MediaInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MediaInfo.xcdatamodel; sourceTree = "<group>"; };
-		D6B977152426A731004D6608 /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		ECF43F5B9CAD64C9111DF719 /* Pods_mobile_mediainfo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_mediainfo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4FF367CB8A9B8AB55DE491 /* Pods_mobile_mediainfo_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_mediainfo_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -55,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D04C212C9F210500E8FCA4 /* ZenLib.xcframework in Frameworks */,
+				D5D04C1F2C9F210500E8FCA4 /* MediaInfoLib.xcframework in Frameworks */,
 				DB9FC72E194070917341BC27 /* Pods_mobile_mediainfo_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +102,6 @@
 				D6B977022426A680004D6608 /* SubscriptionManager.swift */,
 				D6B976F92426A680004D6608 /* ViewsController.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				D6B977152426A731004D6608 /* BridgeHeader.h */,
 			);
 			name = "Example for mobile-mediainfo";
 			path = "mobile-mediainfo";
@@ -144,6 +148,8 @@
 		F91DFE2AF669F1A919907DF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5D04C1D2C9F210500E8FCA4 /* MediaInfoLib.xcframework */,
+				D5D04C1E2C9F210500E8FCA4 /* ZenLib.xcframework */,
 				FF4FF367CB8A9B8AB55DE491 /* Pods_mobile_mediainfo_Example.framework */,
 				ECF43F5B9CAD64C9111DF719 /* Pods_mobile_mediainfo_Tests.framework */,
 			);
@@ -399,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -416,7 +422,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 0;
 				INFOPLIST_FILE = "mobile-mediainfo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -425,7 +431,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "mobile-mediainfo/BridgeHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -440,7 +446,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 0;
 				INFOPLIST_FILE = "mobile-mediainfo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +455,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "mobile-mediainfo/BridgeHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
