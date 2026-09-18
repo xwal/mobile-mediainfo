@@ -9,20 +9,10 @@ import StoreKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, SKPaymentTransactionObserver {
-    var window: UIWindow?
+class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObserver {
     let subscriptionManager = SubscriptionManager.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
-
-        let reportsListNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = reportsListNavigationController.topViewController as! ReportsListViewController
-        controller.managedObjectContext = self.persistentContainer.viewContext
-
         SKPaymentQueue.default().add(self)
         subscriptionManager.loadSubscription()
 
@@ -44,18 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate.
         self.saveContext()
-    }
-
-    // MARK: - Split view
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsReportController = secondaryAsNavController.topViewController as? ReportViewController else { return false }
-        if topAsReportController.report == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
-        return false
     }
 
     // MARK: - Core Data stack

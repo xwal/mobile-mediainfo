@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/mobile-mediainfo.svg?style=flat)](https://cocoapods.org/pods/mobile-mediainfo)
 [![Platform](https://img.shields.io/cocoapods/p/mobile-mediainfo.svg?style=flat)](https://cocoapods.org/pods/mobile-mediainfo)
 
-**Use MediaInfo in iOS 8.0+ projects. Easy and fast.**
+**Use MediaInfo in iOS 12.0+ projects. Easy and fast.**
 
 [MediaInfo](https://github.com/MediaArea/MediaInfo) is a convenient unified display of the most relevant technical and tag data for video and audio files.
 
-[mobile-mediainfo](https://github.com/xwal/mobile-mediainfo) is a Framework for iOS8+, compiled also for armv7, armv7s, arm64 , i386(Simulator) and x86_64(Simulator).
+[mobile-mediainfo](https://github.com/xwal/mobile-mediainfo) packages MediaInfo as XCFrameworks for iOS devices and simulators.
 
 These are the current versions of the upstream bundled libraries within the framework that this repository provides:
 
@@ -40,9 +40,13 @@ It's much easier now to update to a any (new or old) versions of library: just c
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+For the Swift Package example, open
+`Example-SPM/MobileMediaInfoDemo.xcodeproj` directly in Xcode. It uses the
+package in the repository root and does not require CocoaPods.
+
 ## Requirements
 
-* iOS 8.0+
+* iOS 12.0+
 
 ## Installation
 
@@ -51,6 +55,23 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'mobile-mediainfo', :git => 'https://github.com/xwal/mobile-mediainfo.git'
+```
+
+### Swift Package Manager
+
+In Xcode, select **File > Add Package Dependencies** and enter:
+
+```text
+https://github.com/xwal/mobile-mediainfo.git
+```
+
+Add the `MobileMediaInfo` product to your iOS target, then import it:
+
+```swift
+import MobileMediaInfo
+
+let handle = MediaInfo_New()
+defer { MediaInfo_Delete(handle) }
 ```
 
 ## Author

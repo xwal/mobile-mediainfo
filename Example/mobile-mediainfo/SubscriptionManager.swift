@@ -200,7 +200,7 @@ class SubscriptionManager : NSObject, SKProductsRequestDelegate {
         if let receiptData = loadReceipt() {
             do {
                 let decodedReceipt = try InAppReceipt.receipt(from: receiptData)
-                try decodedReceipt.verify()
+                try decodedReceipt.validate()
 
                 for subscription in decodedReceipt.purchases(ofProductIdentifier: subscriptionId) {
                     if !subscriptions.contains(subscription.purchaseDate) {
